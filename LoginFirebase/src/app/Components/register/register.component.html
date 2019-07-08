@@ -1,0 +1,24 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-back-button slot="start"></ion-back-button>
+      </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h3>Pagina registro</h3>
+
+  <ion-input type="text" style="
+  background-color: red;" [(ngModel)]="username"></ion-input>
+
+
+<ion-input type="text" style="
+background-color: blue;" [(ngModel)]="password"></ion-input>
+
+
+<ion-button (click)="crearUsuario()">Crear usuario</ion-button>
+
+
+
+
+
+</ion-content>

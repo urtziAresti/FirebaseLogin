@@ -1,0 +1,32 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-back-button slot="start"></ion-back-button>
+      </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-avatar>
+        <img #avatarImage src="{{base64Image}}">
+
+      </ion-avatar>
+
+      <ion-button (click)="uploadImage()">Upload Image</ion-button>
+
+
+  <ion-list>
+      <ion-item>
+          <ion-button (click)="logout()">LogOUT</ion-button>
+      </ion-item>
+
+      <ion-item>
+          <ion-button (click)="changePassword()">ChangePassword</ion-button>
+        </ion-item>
+
+  </ion-list>
+
+
+
+
+
+</ion-content>
