@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ImagePicker } from '@ionic-native/image-picker/ngx';
 import { LoginService } from '../../Services/login.service';
-import { userInfo } from 'os';
 
 
 @Component({
