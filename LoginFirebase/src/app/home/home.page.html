@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Pruebas
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+  <p *ngFor="let user of users">{{user.user_id}} 
+    {{user.pass}}
+  </p>
+  </div>
+
+  <ion-input type="text" style="
+  background-color: red;" [(ngModel)]="username"></ion-input>
+
+
+<ion-input type="text" style="
+background-color: blue;" [(ngModel)]="pass"></ion-input>
+
+
+
+<ion-button (click)="login()">LogIN</ion-button>
+</ion-content>
