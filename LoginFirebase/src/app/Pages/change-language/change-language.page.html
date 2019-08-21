@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Selecionar Idiomas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+
+  <ion-radio-group value="{{actualLang}}" (ionChange)="selectLang($event)">
+      <ion-list-header padding-top padding-bottom color="very-light-grey">
+          Idiomas disponibles
+      </ion-list-header>
+  
+      <ion-item *ngFor="let lang of languages" lines="none" class="lang-item">
+        <ion-label class="language-label">{{lang.name}}</ion-label>
+        <ion-radio value="{{lang.code}}" mode="md" ></ion-radio>
+      </ion-item>
+  </ion-radio-group>
+
+
+
+
+  <!-- <ion-list>
+
+    <ion-item *ngFor="let lang of languages">
+
+        <ion-label class="language-label">{{lang.name}}</ion-label>
+        <ion-radio value="{{lang.code}}" mode="md" ></ion-radio>
+      
+
+    </ion-item>
+
+
+  </ion-list> -->
+
+</ion-content>

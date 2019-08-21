@@ -18,9 +18,12 @@ import { FirebaseAuthentication } from '@ionic-native/firebase-authentication/ng
 import { AngularFireAuth } from 'angularfire2/auth';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HttpModule, Http } from '@angular/http';
-import { HttpClient } from '@angular/common/http';
 import { MapComponent } from './Components/map/map.component';
+import { ChangeLanguagePage } from './Pages/change-language/change-language.page';
+import {  HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+
+
 
 
 @NgModule({
@@ -28,11 +31,13 @@ import { MapComponent } from './Components/map/map.component';
     AppComponent,
     RegisterComponent,
     ChangePasswordPage,
+    ChangeLanguagePage,
     MapComponent
   ],
   entryComponents: [
     RegisterComponent,
-    ChangePasswordPage
+    ChangePasswordPage,
+    ChangeLanguagePage
   ],
   imports: [
     BrowserModule,
@@ -42,11 +47,12 @@ import { MapComponent } from './Components/map/map.component';
     AngularFireDatabaseModule,
     AngularFirestoreModule,
     FormsModule,
+    HttpClientModule,
     TranslateModule.forRoot({
       loader: {
-        provide: TranslateLoader,
-        useFactory: (createTranslateLoader),
-        deps: [Http]
+          provide: TranslateLoader,
+          useFactory: (createTranslateLoader),
+          deps: [HttpClient]
       }
     })
   ],
@@ -56,6 +62,7 @@ import { MapComponent } from './Components/map/map.component';
     FirebaseAuthentication,
     AngularFireAuth,
     ImagePicker,
+    HttpClient,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
@@ -64,6 +71,6 @@ export class AppModule {
 }
 
 export function createTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+  return new TranslateHttpLoader(http, '../assets/i18n/', '.json');
 }
 

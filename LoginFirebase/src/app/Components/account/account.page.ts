@@ -4,6 +4,8 @@ import { ImagePicker } from '@ionic-native/image-picker/ngx';
 import { LoginService } from '../../Services/login.service';
 import { ChangePasswordPage } from '../../Pages/change-password/change-password.page';
 import { ModalController } from '@ionic/angular';
+import { ChangeLanguagePage } from '../../Pages/change-language/change-language.page';
+
 
 
 @Component({
@@ -32,6 +34,12 @@ export class AccountPage implements OnInit {
   ngOnInit() {
   }
 
+  showChangelanguageDialog(){
+
+    this.presentChangeLanguageModal();
+
+  }
+
 
   uploadImage() {
     console.warn("upload Image");
@@ -57,6 +65,13 @@ export class AccountPage implements OnInit {
   async presentModal() {
     const modal = await this.modalController.create({
       component: ChangePasswordPage,
+    });
+    return await modal.present();
+  }
+
+  async presentChangeLanguageModal() {
+    const modal = await this.modalController.create({
+      component: ChangeLanguagePage,
     });
     return await modal.present();
   }
