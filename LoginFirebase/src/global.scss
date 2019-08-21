@@ -9,3 +9,21 @@
 @import '~@ionic/angular/css/text-alignment.css';
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
+
+
+
+ion-input {
+    background-color: red;
+}
+
+ion-modal {
+    position: relative;
+    display: block;
+    height: 50vh;
+    width: 80vw;
+    margin: auto;
+    border: 3px solid;
+
+
+    backdrop-filter:  blur(2px);
+}

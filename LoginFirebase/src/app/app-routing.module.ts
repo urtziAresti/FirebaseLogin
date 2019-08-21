@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { RegisterComponent } from './Components/register/register.component';
+import { MapComponent } from './Components/map/map.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -8,6 +9,9 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardPageModule' },
   { path: 'dashboard/account', loadChildren: './Components/account/account.module#AccountPageModule' },
+  { path: 'change-password', loadChildren: './Pages/change-password/change-password.module#ChangePasswordPageModule' },
+  { path: 'dashboard/map', component: MapComponent },
+
 
 ];
 

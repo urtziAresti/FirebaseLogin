@@ -7,18 +7,28 @@
 <ion-content>
   <h3>Pagina registro</h3>
 
-  <ion-input type="text" style="
-  background-color: red;" [(ngModel)]="username"></ion-input>
 
+  <ion-card>
+      <ion-card-header>
+        <ion-card-title id="loginTitle">LOGIN</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-item>
+            <ion-label position="floating">Usuario</ion-label>
+            <ion-input color="primary" type="text" [(ngModel)]="username"></ion-input>
+          </ion-item>
 
-<ion-input type="text" style="
-background-color: blue;" [(ngModel)]="password"></ion-input>
+          <ion-item>
+            <ion-label position="floating">Contraseña</ion-label>
+            <ion-input type="password" color="bonito"  [(ngModel)]="password"></ion-input>
+          </ion-item>
 
-
-<ion-button (click)="crearUsuario()">Crear usuario</ion-button>
-
-
-
-
+          <ion-item >
+              <ion-button color="primary" (click)="crearUsuario()">Crear usuario</ion-button>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
 
 </ion-content>

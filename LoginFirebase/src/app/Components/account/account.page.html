@@ -1,32 +1,33 @@
 <ion-header>
     <ion-toolbar>
-        <ion-back-button slot="start"></ion-back-button>
-      </ion-toolbar>
-</ion-header>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="dashboard"></ion-back-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
 
 <ion-content>
-
-    <ion-avatar>
-        <img #avatarImage src="{{base64Image}}">
-
+    <ion-avatar id="avatarIcon">
+        <img src="{{base64Image}}">
       </ion-avatar>
-
-      <ion-button (click)="uploadImage()">Upload Image</ion-button>
-
 
   <ion-list>
       <ion-item>
+            <ion-button (click)="uploadImage()">Upload Image</ion-button>
+      </ion-item>
+      <ion-item>
           <ion-button (click)="logout()">LogOUT</ion-button>
       </ion-item>
-
       <ion-item>
           <ion-button (click)="changePassword()">ChangePassword</ion-button>
         </ion-item>
+        <ion-item>
+            <ion-label>Notificaciones</ion-label>
+            <ion-toggle  name="blackberry" color="dark" checked></ion-toggle>
+        </ion-item>
 
+        <ion-item>
+                <ion-button (click)="showChangelanguageDialog()">Selecion Idioma</ion-button>
+        </ion-item>
   </ion-list>
-
-
-
-
-
 </ion-content>

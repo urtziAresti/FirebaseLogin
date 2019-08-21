@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 import { LoginService } from '../Services/login.service';
 import { Observable } from 'rxjs';
-import { ModalController } from '@ionic/angular';
+import { ModalController, ToastController } from '@ionic/angular';
 import { RegisterComponent } from '../Components/register/register.component';
 import { Router } from '@angular/router';
 
@@ -21,11 +21,12 @@ export class HomePage {
 
 
   constructor(private _loginService: LoginService,
-              public modalController: ModalController,
-              private router: Router,
-              ) {
+    public modalController: ModalController,
+    private router: Router,
+    private toastController: ToastController
+  ) {
 
-      this.getAllUsers();
+    this.getAllUsers();
   }
 
 
@@ -37,14 +38,13 @@ export class HomePage {
 
       this.users = data.map(item => {
         return {
-                 id: item.payload.doc.id,
-                 ...item.payload.doc.data()
-          };
+          id: item.payload.doc.id,
+          ...item.payload.doc.data()
+        };
       })
     });
 
   }
-
 
   registro() {
 
@@ -57,22 +57,29 @@ export class HomePage {
     console.warn(this.username);
 
 
-    let user = this.users.find(username => username.user_id === this.username );
+    let user = this.users.find(username => username.user_id === this.username);
 
     console.warn(user);
+    if (user) {
+      if (user.pass == this.pass) {
+        this.router.navigateByUrl('dashboard');
+        localStorage.setItem('user_data', JSON.stringify(user));
+      } else {
+        this.presentToast("Contraseña incorrecta");
+      }
+    } else {
+      this.presentToast("El Usuario no esta disponible");
 
-        if(user){
-          if(user.pass == this.pass) {
-            console.warn("login correct");    
-            this.router.navigateByUrl('dashboard');
-
-            localStorage.setItem('user_data',JSON.stringify(user));
-            
-          } else {
-            console.error("pass sincorrect");
-          }
-        }else {
-          console.error("no user found");
-        }
+    }
   }
+
+  async presentToast(errorMessage) {
+    const toast = await this.toastController.create({
+      message: errorMessage,
+      duration: 2000
+    });
+    toast.present();
+  }
+
+
 }
